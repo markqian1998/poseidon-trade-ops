@@ -18,7 +18,7 @@ function _accountTagNoBook({ copy, sub, acName }) {
 function callDepositPlace(ctx) {
     const subject = `Call Deposit Order - ${PoseidonCommon.formatDateForSubject()}`;
     const body =
-        `Dear ${ctx.salutation || 'Team'},\n\n` +
+        `Hi Team,\n\n` +
         `For a/c ${_accountTagWithBookAndBrackets(ctx)},\n\n` +
         `Please help place ${ctx.ccy} Call Deposit, amount: ${ctx.ccy} ${ctx.amount}. Value ${ctx.valueLabel || 'Today'}.`;
     return { subject, body };
@@ -27,7 +27,7 @@ function callDepositPlace(ctx) {
 function callDepositUnwind(ctx) {
     const subject = `Unwind Call Deposit Order - ${PoseidonCommon.formatDateForSubject()}`;
     const body =
-        `Dear ${ctx.salutation || 'Team'},\n\n` +
+        `Hi Team,\n\n` +
         `For a/c ${_accountTagWithBookAndBrackets(ctx)},\n\n` +
         `Please help unwind the ${ctx.ccy} Call Deposit, amount: ${ctx.ccy} ${ctx.amount}. Value ${ctx.valueLabel || 'Today'}. Thanks.`;
     return { subject, body };
@@ -37,7 +37,7 @@ function ftdDeposit(ctx) {
     const subject = `Deposit Order - ${PoseidonCommon.formatDateForSubject()}`;
     const at = ctx.bookingEntity ? ` at ${ctx.bookingEntity}` : '';
     const lines = [
-        `Dear ${ctx.salutation || 'Team'},`,
+        `Hi Team,`,
         '',
         `For a/c ${_accountTagWithBookNoBrackets(ctx)}`,
         '',
@@ -56,7 +56,7 @@ function ftdDeposit(ctx) {
 function oneOffLoan(ctx) {
     const subject = `Loan Instruction Order - ${PoseidonCommon.formatDateForSubject()}`;
     const body =
-        `Hi ${ctx.salutation || 'Team'},\n\n` +
+        `Hi Team,\n\n` +
         `For a/c ${_accountTagNoBook(ctx)},\n\n` +
         `Please help draw one-off ${ctx.ccy} loan ${ctx.ccy} ${ctx.amount} ${ctx.purpose || 'to cover OD'}, til ${ctx.endDate}, starting from ${ctx.startLabel || 'today'}. Many thanks`;
     return { subject, body };
@@ -68,7 +68,7 @@ function siLoan(ctx) {
     const instr = ctx.loanInstruction || '';
     const tail = instr ? `${instr}, ` : '';
     const body =
-        `Hi ${ctx.salutation || 'Team'},\n\n` +
+        `Hi Team,\n\n` +
         `For a/c ${_accountTagNoBook(ctx)},\n\n` +
         `Please help draw ${ctx.ccy} loan ${ctx.ccy} ${ctx.amount} ${ctx.purpose || 'to cover OD'}, rolling on a ${rolling} basis, ${tail}starting from ${ctx.startLabel || 'today'}. Many thanks`;
     return { subject, body };
@@ -105,7 +105,7 @@ function equityOrder(ctx) {
     const multi = orders.length > 1;
     const subject = `Equity Order${multi ? 's' : ''} - ${PoseidonCommon.formatDateForSubject()}`;
     const lines = [
-        `Hi ${ctx.salutation || 'Team'},`,
+        `Hi Team,`,
         '',
         `For a/c ${_accountTagNoBook(ctx)},`,
         '',

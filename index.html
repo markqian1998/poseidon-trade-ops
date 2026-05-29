@@ -635,7 +635,7 @@
             const salutation = PoseidonCounterparty.counterpartySalutation(cp);
             let acTagLine = `For a/c ${account.accountNo} ${account.acName}`;
             if (cp.clientCode) acTagLine += ` [Client Code: ${cp.clientCode}]`;
-            const emailBody = `Hi ${salutation},\n\n${acTagLine},\n\nPls help us place below orders. Thanks.\n\n${orderTexts.join('\n\n')}\n`;
+            const emailBody = `Hi Team,\n\n${acTagLine},\n\nPls help us place below orders. Thanks.\n\n${orderTexts.join('\n\n')}\n`;
 
             const subject = `FX Orders - ${formatDateForSubject()}`;
             PoseidonCommon.openMailto(cp.to, buildCcList(cp, account), subject, emailBody);
