@@ -82,7 +82,8 @@ function _equityOrderBlock(o) {
         lines.push(o.tif === 'gtd' && o.gtdDate ? `Good Till ${o.gtdDate}` : 'Day order');
     } else if (o.orderType === 'vwap') {
         if (o.vwapType === 'limit' && o.vwapLimit) {
-            lines.push(`VWAP, limit price: ${o.vwapLimit}`);
+            lines.push('VWAP Limit');
+            lines.push(`Limit Price: ${o.vwapLimit}`);
         } else if (o.vwapType === 'window' && o.vwapWindow) {
             lines.push(`VWAP, ${o.vwapWindow}`);
         } else {
